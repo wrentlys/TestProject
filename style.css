@@ -1,0 +1,54 @@
+:root {
+    --bg: #09090b;
+    --glass: rgba(255, 255, 255, 0.03);
+    --glass-heavy: rgba(255, 255, 255, 0.05);
+    --sakura: #ffb7c5;
+    --accent: #ff748c;
+    --border: rgba(255, 255, 255, 0.08);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
+body { background: var(--bg); color: white; height: 100vh; overflow: hidden; }
+
+.app-container { display: flex; height: 100vh; }
+
+/* Sidebar Simetrisi */
+.sidebar {
+    width: 280px; background: rgba(18, 18, 20, 0.8); backdrop-filter: blur(20px);
+    border-right: 1px solid var(--border); padding: 40px 20px;
+    display: flex; flex-direction: column; justify-content: space-between;
+}
+
+.brand { display: flex; align-items: center; gap: 15px; font-weight: 800; font-size: 22px; color: var(--sakura); }
+.logo { width: 42px; height: 42px; background: var(--accent); border-radius: 14px; display: grid; place-items: center; color: white; }
+
+.side-menu { display: flex; flex-direction: column; gap: 10px; margin-top: 60px; }
+.menu-item {
+    display: flex; align-items: center; gap: 15px; padding: 16px 20px;
+    border-radius: 16px; cursor: pointer; transition: 0.3s; color: #888;
+}
+.menu-item:hover, .menu-item.active { background: var(--glass); color: var(--sakura); border: 1px solid var(--border); }
+
+/* Main Content Area */
+.main-content { flex: 1; padding: 60px; overflow-y: auto; background: radial-gradient(circle at top right, rgba(255, 116, 140, 0.05), transparent); }
+
+/* Modern Input & Button Reset */
+input, button { appearance: none; outline: none; border: none; }
+input[type="number"], input[type="text"] {
+    width: 100%; background: var(--glass-heavy); border: 1px solid var(--border);
+    padding: 18px; border-radius: 16px; color: white; font-size: 16px;
+}
+input:focus { border-color: var(--sakura); box-shadow: 0 0 20px rgba(255, 183, 197, 0.1); }
+
+.btn { padding: 16px 30px; border-radius: 16px; font-weight: 700; cursor: pointer; transition: 0.3s; }
+.btn-pri { background: var(--accent); color: white; }
+.btn-pri:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(255, 116, 140, 0.3); }
+.btn-sec { background: transparent; color: #888; }
+
+/* Modal Glass Effect */
+.glass-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(15px); z-index: 1000; align-items: center; justify-content: center; }
+.modal { 
+    background: rgba(22, 22, 25, 0.7); border: 1px solid var(--border); 
+    padding: 40px; border-radius: 32px; width: 480px;
+    box-shadow: 0 40px 100px rgba(0,0,0,0.5);
+}
